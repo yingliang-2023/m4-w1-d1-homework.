@@ -6,7 +6,7 @@
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.5.2/css/bootstrap.min.css" />
-    <script src="https://cdn.jsdelivr.net/npm/vue/dist/vue.js" defer></script>
+    <script src="https://cdn.jsdelivr.net/npm/vue/dist/vue.js"></script>
     <script src="index.js" defer></script>
     <title>Password Validator</title>
     <style>
@@ -28,11 +28,12 @@
                         <label for="password">Password</label>
                         <input type="password" class="form-control" placeholder="Password" v-model="password"> 
                         <small id="passwordHelp" class="form-text text-muted">Password should contain
-                            <span :class="has minimum length ? 'has required' : ''"› atleast 8 chacters</span>, 
-                            <span :class="has lowercase ? 'has required' : ''">one lowercase letter</span>,
-                            <span :class="has uppercase ? 'has required' : ''">one uppercase letter</span>, 
-                            <span :class="has number ? 'has required' : ''">One number</span>, and 
-                            <span :class="has special ? 'has required' : ''">one special character.</span></small>
+                             
+                            <span :class="{has_required:has_minimun_length}"> at least 8 characters</span>, 
+                            <span :class="has_lowercase?'has_required':''">one lowercase letter</span>,
+                            <span :class="has_uppercase?'has_required':''">one uppercase letter</span>, 
+                            <span :class="has_number?'has_required':''">One number</span>, and 
+                            <span :class="has_special?'has_required':''">one special character.</span></small>
                     </div>
                 </password-helper>
             </div>
@@ -54,7 +55,7 @@
         },
         watch:{
             password(){
-                this.has_minimun_length  =(this.password.length>8);
+                this.has_minimun_length=(this.password.length>8);
                 this.has_number=/\d/.test(this.password);
                 this.has_lowercase=/[a-z]/.test(this.password);
                 this.has_uppercase=/[A-Z]/.test(this.password);
