@@ -28,14 +28,11 @@
                         <label for="password">Password</label>
                         <input type="password" class="form-control" placeholder="Password" v-model="password"> 
                         <small id="passwordHelp" class="form-text text-muted">Password should contain
-                            <span
-                                :class="has minimum length ? 'has required' : "'"›atleast 8 chacters</span>, 
-                            <span :class="has lowercase ? '
-                                has required' : "'">one lowercase letter</span>,
+                            <span :class="has minimum length ? 'has required' : ''"› atleast 8 chacters</span>, 
+                            <span :class="has lowercase ? 'has required' : ''">one lowercase letter</span>,
                             <span :class="has uppercase ? 'has required' : ''">one uppercase letter</span>, 
-                            <span
-                                :class="has number ? 'has required' : "'">One number</span>, and <span :class="has special ? '
-                                has required' : '">one special character.</span></small>
+                            <span :class="has number ? 'has required' : ''">One number</span>, and 
+                            <span :class="has special ? 'has required' : ''">one special character.</span></small>
                     </div>
                 </password-helper>
             </div>
